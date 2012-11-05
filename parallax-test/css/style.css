@@ -1,0 +1,755 @@
+/*
+Elevation Church - 2011 Annual Report - Digital Interactive Version
+Original work except where noted. Thanks to all who inspired the interactions we developed, 
+specifically http://davegamache.com/, http://nikebetterworld.com/, and http://www.iutopi.com/en/.
+
+Glory to God for all He did at Elevation Church in 2011. The best is yet to come.
+*/
+
+/* 
+  HTML5 ✰ Boilerplate 
+  
+  style.css contains a reset, font normalization and some base styles.
+  
+  credit is left where credit is due.
+  much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/* 
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+    display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; outline:none; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+/* END RESET CSS */
+
+
+/* fonts.css from the YUI Library: developer.yahoo.com/yui/
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
+
+  There are three custom edits:
+   * remove arial, helvetica from explicit font stack
+   * we normalize monospace styles ourselves
+   * table font-size is reset in the HTML5 reset above so there is no need to repeat
+*/
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+
+select, input, textarea, button { font:99% sans-serif; }
+
+/* normalize monospace sizing 
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+ 
+
+/* 
+ * minimal base styles 
+ */
+
+
+body, select, input, textarea { 
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
+  color: #444; 
+  /* set your base font here, to apply evenly */
+  /* font-family: Georgia, serif;  */   
+}
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+   you'll want to define those yourself. */ 
+h1,h2,h3,h4,h5,h6 { font-weight: normal; }
+
+/* always force a scrollbar in non-IE */ 
+html { overflow-y: scroll; }
+
+ 
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin: 0; } 
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; } 
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+pre { 
+  padding: 15px; 
+  
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+ 
+textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+ 
+/* webkit browsers add a 2px margin outside the chrome of form elements */  
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301 */
+/*::-moz-selection{ background:#F05A23; color:#000; text-shadow: none; }
+::selection { background:#F05A23; color:#000; text-shadow: none; } */
+
+/*  j.mp/webkit-tap-highlight-color */
+/*a:link { -webkit-tap-highlight-color: #FF5E99; } */
+
+/* make buttons play nice in IE:    
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+ 
+/* bicubic resizing for non-native sized IMG: 
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+
+
+/* 
+ * Non-semantic helper classes 
+ */
+
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; } 
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
+.visuallyhidden { position: absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after {
+  content: "\0020"; display: block; height: 0; visibility: hidden;	
+} 
+
+.clearfix:after { clear: both; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
+
+
+/* Primary Styles
+    Author: @elevationsarge
+*/
+body {text-align:center; font-size:15px; color:#fff; font-family:Arial, Helvetica, sans-serif; background-color: #000; -webkit-text-size-adjust: none; overflow: hidden;}
+
+#iedisclaimer {text-align: left; position: absolute; left: 0; top: 0; width: 100%; z-index: 999; background: #000;}
+#iedisclaimer p {color: #fff; text-align: left; padding: 15px 60px 15px 60px;}
+#iedisclaimer a {color: #fff;}
+
+#outer {width: 100%; height: 100%; text-align: center;}
+#container {width:100%; height: auto; margin:0 auto; padding: 0 auto; text-align:center; position: relative;}
+
+/* General content */
+p {font-size: 15px; line-height: 18px; padding-bottom:15px;}
+a, a:active, a:visited {color:#000; text-decoration: underline;}
+
+#pos {position: fixed; right: 50px; top: 50px; width: 50px; height: 20px; color: #000; background-color: #fff; z-index: 999; display: none;}
+#diag {position: fixed; right: 50px; top: 80px; width: 50px; height: 20px; color: #000; background-color: #fff; z-index: 999; display: none;}
+
+#nav {list-style: none; position: fixed; right: 20px; z-index: 999;}
+#nav li {margin: 0 0 5px 0; position: relative;}
+#nav li a {display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; background-image: url(../images/2011AR-NAV.png); width: 14px; height: 14px; z-index: 5; position: relative;}
+#nav li .navlabel {padding: 1px 12px 1px 7px; font-size: 10px; color: #808080; background-color: #fff; position: absolute; right: 7px; top: 0; display: none; border-radius: 7px 0 0 7px; z-index: 4; width: auto; height: 12px; white-space: nowrap;}
+.ismobile #nav {display: none;}
+
+.page {width: 100%; position: relative;}
+.page .element {display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; position: absolute;}
+.page section {width: 650px; margin: 0 auto; position: relative;}
+.page .sectionheader {z-index: 99;}
+.page .video {width: 640px; height: 360px;}
+.page .video .vid {/*position: absolute; left: 0; top: 0;*/ width: 100%; height: 100%; text-indent: 0;}
+.page .video .vidheader {position: absolute; left: 0; top: 0; width: 100%;}
+.page .video .vidfooter {position: absolute; left: 0; bottom: 0; width: 100%;}
+.page .divider {background-position: center top; width: 100%; height: 10px; position: absolute; top:0; z-index: 99;}
+.page .tab {background-position: left top; width: 124px; height: 78px; position: absolute; top:0; z-index: 99;}
+.page .btn {text-indent: 0;}
+.page .btn a {text-indent: -999em; width: 100%; height: 100%; display: block;}
+.page .bg {position: absolute;}
+.page .vidthumb {text-indent: 0; width: 200px; height: 150px; cursor: pointer;}
+.page .vidfull {text-indent: 0; width: 640px; height: 360px; z-index: 999;}
+.vidtarget {position: absolute; width: 640px; height: 360px; left: 0px; top: 30px; opacity: 0; z-index: 1; background-color: #000;}
+.vidtarget .close {position: absolute; width: 16px; height: 16px; top: -16px; right: -16px; background: url(../images/close.png) no-repeat left top; cursor: pointer;}
+.page .fade {background-repeat: repeat-x; width: 100%; height: 100px; position: absolute; left: 0; top: 10px; z-index: 98; opacity: 0;}
+
+/* Section - Intro */
+#page1 {background: #b3b3b3 url(../images/2011AR-home-1-map.png) fixed no-repeat 50% 100px; -webkit-background-size: 1375px 673px;}
+
+#intro {width: 800px; height: 1100px;}
+#intro-circle {background-image: url(../images/2011AR-home-1-chart.png); background-position: center top; width: 100%; height: 630px; left: 0; top: 84px; position: absolute;}
+#intro-logo {background-image: url(../images/2011AR-home-1-LOGO.png); width: 139px; height: 35px; left: 330px; top: 220px;}
+#intro-header {background-image: url(../images/2011AR-home-1-title.png); width: 704px; height: 230px; left: 150px; top: 305px;}
+#intro-prompt {background-image: url(../images/2011AR-home-1-scroll.png); width: 240px; height: 35px; left: 285px; top: 600px; opacity: 0;}
+#intro-download {background-image: url(../images/2011AR-home-1-btn_download.png); width: 293px; height: 46px; right: 50px; top: 50px;}
+
+#page1divider {background-image: url(../images/2011AR-home-2-bar.png); background-color: #8C8F92;}
+
+#pastor {height: 800px;}
+#pastorvid {margin: 0 auto; position: relative; background: #D6DD23; padding: 31px 0 15px 0;}
+#pastorvid .vidheader {height: 104px; background: url(../images/2011AR-home-2-vidheader.png) no-repeat left top;}
+#pastorvid .vidfooter {height: 15px; background: url(../images/2011AR-home-2-vidfooter.png) no-repeat left top;}
+
+/* Section - Salvations and Baptisms */
+#salbapt .sectionheader {background-image: url(../images/2011AR-home-3_header.png); width: 306px; height: 22px; position: absolute; left: 50px; top: 25px;}
+
+#salvations {height: 400px;}
+#salheader {background-image: url(../images/2011AR-home-3-subhead-2011salvations.png); width: 646px; height: 31px;}
+#saltotal {background-image: url(../images/2011AR-home-3-salvations.png); width: 204px; height: 119px; left: -25px; top: 150px;}
+#salcircle {background-image: url(../images/2011AR-home-3-salvationschart.png); width: 314px; height: 314px; left: -85px; top: 50px;}
+#salchart {width: 190px; height: 300px; left: 290px; top: 70px; position: absolute;}
+#salcoch {background-image: url(../images/2011AR-home-3-coch.png); width: 190px; height: 81px; left: 0px; top: 0px;}
+#sal3dea {background-image: url(../images/2011AR-home-3-3Deaster.png); width: 195px; height: 92px; left: 0px; top: 100px;}
+#salwe {background-image: url(../images/2011AR-home-3-wknds.png); width: 195px; height: 91px; left: 0px; top: 200px;}
+#salvids {width: 190px; height: 300px; left: 550px; top: 50px; position: absolute;}
+#salvid1 {left: 0; top:0px; background-image: url(http://b.vimeocdn.com/ts/268/280/268280543_200.jpg);}
+#salvid2 {left: 0; top:170px; background-image: url(http://b.vimeocdn.com/ts/271/053/271053480_200.jpg);}
+#salvid-target {top: 50px;}
+
+#baptisms {height: 1000px; position: relative;}
+#baptheader {background-image: url(../images/2011AR-home-3-subhead-follow.png); width: 646px; height: 31px;}
+#bapttotal {background-image: url(../images/2011AR-home-3-baptisms.png); width: 200px; height: 127px; left: 0px; top: 100px;}
+#baptdroplet {background-image: url(../images/2011AR-home-3-baptismschart.png); background-position: center bottom; width: 100%; height: 580px; left: 0px; top: 0px; position: absolute;}
+.ismobile #baptdroplet {width: 147px; height: 230px; left: 250px; top: 60px; opacity: 1 !important;}
+#baptchart {width: 220px; height: 200px; left: 450px; top: 70px; position: absolute;}
+#baptblak {background-image: url(../images/2011AR-home-3-baptism-blk.png); width: 220px; height: 44px; left: 0px; top: 0px;}
+#baptmatt {background-image: url(../images/2011AR-home-3-baptism-mth.png); width: 220px; height: 44px; left: 0px; top: 50px;}
+#baptupto {background-image: url(../images/2011AR-home-3-baptism-upt.png); width: 220px; height: 44px; left: 0px; top: 100px;}
+#baptprov {background-image: url(../images/2011AR-home-3-baptism-prov.png); width: 220px; height: 44px; left: 0px; top: 150px;}
+#followvid {top: 320px;}
+#baptgrandtotalheader {background-image: url(../images/2011AR-home-3-baptismtotal.png); width: 646px; height: 100px; left: 0px; top: 720px;}
+
+/* Page - eGroups, eTeams, eKidz */
+#page2 {background-color: #b10e2b; background-image: url(../images/2011AR-connected-1-bkgd-egroups.png), url(../images/2011AR-connected-1-bkgd-plugin.png); background-position: 100% 300px, -40% 1000px; background-repeat: no-repeat; background-attachment: fixed;}
+
+#page2divider {background-color: #231F20;}
+#page2tab {background-image: url(../images/2011AR-connected-1-tab.png); position: absolute; left: 50px; top: 10px;}
+#page2 .sectionheader {background-image: url(../images/2011AR-connected-1-header.png); width: 285px; height: 18px; position: absolute; left: 200px; top: 35px;}
+
+#egroups {height: 800px; position: relative;}
+#egheader {background-image: url(../images/2011AR-connected-1-subhead-egroups.png); width: 640px; height: 24px; left: 0px; top: 100px;}
+#egtotal {background-image: url(../images/2011AR-connected-1-egroupsincrease.png); width: 501px; height: 85px; left: -85px; top: 140px;}
+#egyearchart {background-image: url(../images/2011AR-connected-1-egroupschart.png); width: 407px; height: 54px; left: 0px; top: 240px;}
+#egstudentchart {background-image: url(../images/2011AR-connected-1-estudents.png); width: 154px; height: 177px; left: 485px; top: 152px;}
+#egvidintro {background-image: url(../images/2011AR-connected-1-vidintro.png); width: 570px; height: 32px; left: 0px; top: 350px;}
+#egvid {top: 400px;}
+
+#egcats {height: 400px; position: relative;}
+#egcatheader {background-image: url(../images/2011AR-connected-1-subhead-egroupcats.png); width: 640px; height: 23px; left: 0px; top: 0px;}
+#egcattotal {background-image: url(../images/2011AR-connected-1-egroups.png); width: 106px; height: 73px; left: 50px; top: 140px;}
+#egcatcircle {background-image: url(../images/2011AR-connected-1-egroupscatchart.png); width: 287px; height: 287px; left: -40px; top: 40px;}
+#egcatarrow {background-image: url(../images/2011AR-connected-1-egroupcats-arrow.png); width: 183px; height: 27px; left: 155px; top: 170px;}
+#egcatchart {width: 301px; height: 170px; left: 350px; top: 99px; position: absolute;}
+#egcat1 {background-image: url(../images/2011AR-connected-1-egroupscat1.png); width: 301px; height: 27px; left: 0px; top: 0px;}
+#egcat2 {background-image: url(../images/2011AR-connected-1-egroupscat2.png); width: 301px; height: 27px; left: 0px; top: 35px;}
+#egcat3 {background-image: url(../images/2011AR-connected-1-egroupscat3.png); width: 301px; height: 27px; left: 0px; top: 70px;}
+#egcat4 {background-image: url(../images/2011AR-connected-1-egroupscat4.png); width: 301px; height: 27px; left: 0px; top: 105px;}
+#egcat5 {background-image: url(../images/2011AR-connected-1-egroupscat5.png); width: 301px; height: 27px; left: 0px; top: 140px;}
+#egcatbtn {background-image: url(../images/2011AR-connected-1-btn-getconnected.png); width: 389px; height: 51px; left: 250px; top: 320px;}
+
+#eteams {height: 600px; position: relative;}
+#etheader {background-image: url(../images/2011AR-connected-1-subhead-eteams.png); width: 637px; height: 24px; left: 0px; top: 0px;}
+#etnew {background-image: url(../images/2011AR-connected-1-newvols.png); width: 620px; height: 57px; left: 20px; top: 50px;}
+#ettotal {background-image: url(../images/2011AR-connected-1-eteammembers.png); width: 126px; height: 69px; left: 110px; top: 205px;}
+#etcircle {background-image: url(../images/2011AR-connected-1-eteamschart.png); width: 216px; height: 216px; left: 65px; top: 130px;}
+#etarrow {background-image: url(../images/2011AR-connected-1-eteamsarrow.png); width: 145px; height: 21px; left: 165px; top: 285px;}
+#etchart {background-image: url(../images/2011AR-connected-1-eteamschartkey.png); width: 178px; height: 112px; left: 320px; top: 240px;}
+#etbtn {background-image: url(../images/2011AR-connected-1-btn-plugin.png); width: 337px; height: 48px; left: 320px; top: 150px;}
+
+#ekattendance {height: 950px; position: relative;}
+#ekaheader {background-image: url(../images/2011AR-connected-2-subhead-ekidzatt.png); width: 643px; height: 24px; left: 0px; top: 0px;}
+#ekalogo {background-image: url(../images/2011AR-connected-2-ekidz.png); width: 163px; height: 91px; left: -20px; top: 50px;}
+#ekachart {background-image: url(../images/2011AR-connected-2-ekidzattgroup.png); width: 509px; height: 217px; left: -20px; top: 150px;}
+#ekalegend {background-image: url(../images/2011AR-connected-2-ekidzkey.png); width: 239px; height: 370px; left: 500px; top: 50px;}
+#ekavidintro {background-image: url(../images/2011AR-connected-2_vidintro.png); width: 444px; height: 16px; left: 0px; top: 450px;}
+#ekavid {top: 470px;}
+#ekabtn {background-image: url(../images/2011AR-connected-2-btn-watchsermon.png); width: 580px; height: 44px; left: 30px; top: 840px;}
+
+#ekgrowth {height: 250px; position: relative;}
+#ekgheader {background-image: url(../images/2011AR-connected-2-subhead-att.png); width: 642px; height: 24px; left: 0px; top: 0px;}
+#ekgtotal {background-image: url(../images/2011AR-connected-2-ekidzincrease.png); width: 139px; height: 84px; left: 20px; top: 64px;}
+#ekgchart {background-image: url(../images/2011AR-connected-2-ekidzchart.png); width: 470px; height: 126px; left: 175px; top: 50px;}
+
+#ekvols {height: 400px; position: relative;}
+#ekvheader {background-image: url(../images/2011AR-connected-2-subhead-ekidzvols.png); width: 640px; height: 24px; left: 0px; top: 0px;}
+#ekvtotal {background-image: url(../images/2011AR-connected-2-ekidzvolincrease.png); width: 235px; height: 86px; left: 440px; top: 115px;}
+#ekvgrid {background-image: url(../images/2011AR-connected-2-ekidzvolgrid.png); width: 418px; height: 199px; left: 0px; top: 70px;}
+#ekvdata {background-image: url(../images/2011AR-connected-2-ekidzvolchart.png); width: 352px; height: 160px; left: 48px; top: 35px;}
+
+/* Page - eGroups, eTeams, eKidz */
+#page3 {background-color: #f8fdb8;}
+
+#page3divider {background-color: #231F20;}
+#page3tab {background-image: url(../images/2011AR-location-1-tab.png); position: absolute; left: 50px; top: 10px;}
+#page3 .fade {background-image: url(../images/fadetile-yellow.png);}
+#page3 .sectionheader {background-image: url(../images/2011AR-location-1-header.png); width: 238px; height: 18px; position: absolute; left: 200px; top: 35px;}
+
+#page3far {background-image: url(../images/2011AR-location-1-bkgd-peopleFAR.png); width: 494px; height: 233px; left: 60%; top: 20%;}
+#page3mid {background-image: url(../images/2011AR-location-1-bkgd-peopleMID.png); width: 508px; height: 303px; left: 60%; top: 20%;}
+#page3near {background-image: url(../images/2011AR-location-1-bkgd-peopleNEAR.png); width: 439px; height: 376px; left: 60%; top: 20%;}
+
+#attavg {height: 600px; position: relative;}
+#aaheader {background-image: url(../images/2011AR-location-1-avgatt.png); width: 641px; height: 25px; left: 0px; top: 100px;}
+#aatotal {background-image: url(../images/2011AR-location-1-attendance_increase.png); width: 481px; height: 140px; left: 166px; top: 390px;}
+#aachart {background-image: url(../images/2011AR-location-1-attendancebar.png); width: 520px; height: 150px; left: 27px; top: 150px;}
+#aaup {background-image: url(../images/2011AR-location-1-attendance.png); width: 146px; height: 194px; left: 0px; top: 337px;}
+
+#attspecial {height: 500px; position: relative;}
+#asheader {background-image: url(../images/2011AR-location-1-subhead_CEOatt.png); width: 640px; height: 23px; left: 0px; top: 0px;}
+#asetotal {background-image: url(../images/2011AR-location-1-easter.png); width: 180px; height: 110px; left: -30px; top: 192px;}
+#asechart {background-image: url(../images/2011AR-location-1-easter_bar.png); background-position: center bottom; width: 116px; height: 233px; left: 160px; top: 70px;}
+#asctotal {background-image: url(../images/2011AR-location-1-christmas.png); width: 216px; height: 109px; left: 298px; top: 193px;}
+#ascchart {background-image: url(../images/2011AR-location-1-christmas_bar.png); background-position: center bottom; width: 116px; height: 255px; left: 523px; top: 47px;}
+
+#attloc {height: 500px; position: relative;}
+#alheader {background-image: url(../images/2011AR-location-2-subhead_locatt.png); width: 643px; height: 23px; left: 0px; top: 0px;}
+#alchart {background-image: url(../images/2011AR-location-2-locatt.png); width: 402px; height: 327px; left: 27px; top: 50px;}
+#allegend {width: 205px; height: 350px; left: 450px; top: 50px; position: absolute;}
+#allegend1 {background-image: url(../images/2011AR-location-2-locatt_blk.png); width: 205px; height: 43px; left: 0px; top: 0px;}
+#allegend2 {background-image: url(../images/2011AR-location-2-locatt_mat.png); width: 205px; height: 43px; left: 0px; top: 60px;}
+#allegend3 {background-image: url(../images/2011AR-location-2-locatt_prov.png); width: 205px; height: 43px; left: 0px; top: 120px;}
+#allegend4 {background-image: url(../images/2011AR-location-2-locatt_rh.png); width: 205px; height: 43px; left: 0px; top: 180px;}
+#allegend5 {background-image: url(../images/2011AR-location-2-locatt_univ.png); width: 205px; height: 43px; left: 0px; top: 240px;}
+#allegend6 {background-image: url(../images/2011AR-location-2-locatt_upt.png); width: 205px; height: 43px; left: 0px; top: 300px;}
+
+#attoff {height: 400px; position: relative;}
+#aoheader {background-image: url(../images/2011AR-location-2-subhead-offering.png); width: 640px; height: 22px; left: 0px; top: 0px;}
+#aochart {background-image: url(../images/2011AR-location-2-offeringbar.png); width: 647px; height: 241px; left: 20px; top: 50px;}
+
+/* Page - Outreach */
+#page4 {background-color: #fbc37c;}
+
+#page4divider {background-color: #db7b00;}
+#page4tab {background-image: url(../images/2011AR-outreach-1-tab.png); position: absolute; left: 50px; top: 10px;}
+#page4 .sectionheader {background-image: url(../images/2011AR-outreach-1-header_outreachgiving.png); width: 352px; height: 18px; position: absolute; left: 200px; top: 35px;}
+
+#page4far {background-image: url(../images/2011AR-outreach-1-bkgd_churches.png); width: 434px; height: 192px; left: 20%; top: 30%;}
+#page4near {background-image: url(../images/2011AR-outreach-1-bkgd_lovewkhrs.png); width: 236px; height: 238px; left: 60%; top: 20%;}
+
+#givdist {height: 600px; position: relative;}
+#gdheader {background-image: url(../images/2011AR-outreach-1-subhead_distribution.png); width: 640px; height: 21px; left: 0px; top: 100px;}
+#gdtotal {background-image: url(../images/2011AR-outreach-1-dist.png); width: 129px; height: 24px; left: 75px; top: 251px;}
+#gdcircle {background-image: url(../images/2011AR-outreach-1-distchart.png); width: 227px; height: 227px; left: 27px; top: 150px;}
+#gdarrow {background-image: url(../images/2011AR-outreach-1-distarrow.png); width: 134px; height: 12px; left: 155px; top: 307px;}
+#gdlegend {width: 303px; height: 150px; left: 300px; top: 195px; position: absolute;}
+#gdlegend1 {background-image: url(../images/2011AR-outreach-1-key_local.png); width: 303px; height: 25px; left: 0px; top: 0px;}
+#gdlegend2 {background-image: url(../images/2011AR-outreach-1-key_disaster.png); width: 303px; height: 25px; left: 0px; top: 35px;}
+#gdlegend3 {background-image: url(../images/2011AR-outreach-1-key_intl.png); width: 303px; height: 25px; left: 0px; top: 70px;}
+#gdlegend4 {background-image: url(../images/2011AR-outreach-1-key_planting.png); width: 303px; height: 25px; left: 0px; top: 105px;}
+#gdtwelve {background-image: url(../images/2011AR-outreach-1-12pct.png); width: 613px; height: 98px; left: 20px; top: 420px;}
+
+#loveweek {height: 750px; position: relative;}
+#lwheader {background-image: url(../images/2011AR-outreach-1-subhead_lovewk.png); width: 641px; height: 21px; left: 0px; top: 0px;}
+#lwlogo {background-image: url(../images/2011AR-outreach-1-lovewk.png); width: 282px; height: 112px; left: 11px; top: 50px;}
+#lwtotal {background-image: url(../images/2011AR-outreach-1-volhrs.png); width: 291px; height: 132px; left: 350px; top: 70px;}
+#lwpartner {background-image: url(../images/2011AR-outreach-1-25churches.png); width: 244px; height: 56px; left: 20px; top: 170px;}
+#lwvid {top: 250px;}
+
+/* Partner Map */
+#partnermap {height: 900px; position: relative;}
+#pmintro {background-image: url(../images/2012AR-outreach-2-desc.png); width: 803px; height: 97px; left: -80px; top: 20px;}
+#pmwrap {position: absolute; left: -12px; top: 210px; width: 700px; height: 800px;}
+#pmdiamond {background-image: url(../images/2012AR-outreach-2-fewpartners.png); background-position: center top; width: 100%; height: 476px; left: 0px; top: 0px;}
+
+#pmupperbarsleft {position: absolute; left: 0px; top: 21px;}
+#pmupperbarsleft .pmbar {background-image: url(../images/2012AR-outreach-2-bar_topL.png); width: 219px; height: 202px;}
+#pmbar1 {left: 0px; top: 0px;}
+#pmbar2 {left: 0px; top: 47px;}
+#pmbar3 {left: 0px; top: 94px;}
+#pmbar4 {left: 0px; top: 141px;}
+#pmupperleftlabel {background-image: url(../images/2012AR-outreach-2-fewintl.png); background-position: left bottom; width: 47px; height: 183px; left: -60px; top: -16px;}
+
+#pmupperbarsright {position: absolute; left: 477px; top: -27px;}
+#pmupperbarsright .pmbar {background-image: url(../images/2012AR-outreach-2-bar_topR.png); background-position: right top; width: 219px; height: 202px;}
+#pmbar5 {left: 0px; top: 0px;}
+#pmbar6 {left: 0px; top: 47px;}
+#pmbar7 {left: 0px; top: 94px;}
+#pmbar8 {left: 0px; top: 141px;}
+#pmbar9 {left: 0px; top: 188px;}
+
+#pmlowerbarsleft {position: absolute; left: 8px; top: 125px;}
+#pmlowerbarsleft .pmbar {background-image: url(../images/2012AR-outreach-2-bar_btmL.png); width: 237px; height: 221px;}
+#pmbar10 {left: 0px; top: 0px;}
+#pmbar11 {left: 0px; top: 50px;}
+#pmbar12 {left: 0px; top: 97px;}
+#pmbar13 {left: 0px; top: 145px;}
+#pmlowerleftlabel {background-image: url(../images/2012AR-outreach-2-fewdisaster.png); background-position: left bottom; width: 47px; height: 188px; left: -60px; top: 340px;}
+
+#pmlowerbarsright {position: absolute; left: 446px; top: 122px;}
+#pmlowerbarsright .pmbar {background-image: url(../images/2012AR-outreach-2-bar_btmR.png); background-position: right top; width: 237px; height: 221px;}
+#pmbar14 {left: 0px; top: 0px;}
+#pmbar15 {left: 0px; top: 49px;}
+#pmbar16 {left: 0px; top: 98px;}
+#pmbar17 {left: 0px; top: 147px;}
+#pmbar18 {left: 0px; top: 197px;}
+#pmlowerrightlabel {background-image: url(../images/2012AR-outreach-2-fewlocal.png); background-position: left bottom; width: 28px; height: 637px; left: 710px; top: -62px;}
+
+#pmupperflagsleft {position: absolute; left: -1px; top: -14px;}
+#pmupperflagsleft .pmflag {background-position: right top;}
+#pmflag1 {background-image: url(../images/2012AR-outreach-2-flag_a21.png); width: 191px; height: 36px; left: 0px; top: 0px;}
+#pmflag2 {background-image: url(../images/2012AR-outreach-2-flag_compassion.png); width: 304px; height: 37px; left: 0px; top: 46px;}
+#pmflag3 {background-image: url(../images/2012AR-outreach-2-flag_lottiemoon.png); width: 358px; height: 37px; left: 0px; top: 93px;}
+#pmflag4 {background-image: url(../images/2012AR-outreach-2-flag_samaritansfeet.png); width: 218px; height: 39px; left: 0px; top: 137px;}
+
+#pmupperflagsright {position: absolute; left: 392px; top: -63px;}
+#pmflag5 {background-image: url(../images/2012AR-outreach-2-flag_childsplace.png); width: 206px; height: 36px; left: 98px; top: 1px;}
+#pmflag6 {background-image: url(../images/2012AR-outreach-2-flag_cltfamhousing.png); width: 301px; height: 36px; left: 3px; top: 48px;}
+#pmflag7 {background-image: url(../images/2012AR-outreach-2-flag_cis.png); width: 220px; height: 37px; left: 84px; top: 94px;}
+#pmflag8 {background-image: url(../images/2012AR-outreach-2-flag_crisis.png); width: 292px; height: 37px; left: 12px; top: 141px;}
+#pmflag9 {background-image: url(../images/2012AR-outreach-2-flag_freedomschool.png); width: 304px; height: 37px; left: 0px; top: 188px;}
+
+#pmlowerflagsleft {position: absolute; left: 8px; top: 346px;}
+#pmlowerflagsleft .pmflag {background-position: right top;}
+#pmflag10 {background-image: url(../images/2012AR-outreach-2-flag_chc.png); width: 321px; height: 35px; left: 0px; top: 0px;}
+#pmflag11 {background-image: url(../images/2012AR-outreach-2-flag_samaritanspurse.png); width: 246px; height: 36px; left: 0px; top: 50px;}
+#pmflag12 {background-image: url(../images/2012AR-outreach-2-flag_coth.png); width: 300px; height: 36px; left: 0px; top: 97px;}
+#pmflag13 {background-image: url(../images/2012AR-outreach-2-flag_stpauls.png); width: 323px; height: 36px; left: 0px; top: 145px;}
+
+#pmlowerflagsright {position: absolute; left: 403px; top: 343px;}
+#pmflag14 {background-image: url(../images/2012AR-outreach-2-flag_habitat.png); width: 271px; height: 36px; left: 9px; top: 0px;}
+#pmflag15 {background-image: url(../images/2012AR-outreach-2-flag_jacksonpark.png); width: 281px; height: 36px; left: 0px; top: 49px;}
+#pmflag16 {background-image: url(../images/2012AR-outreach-2-flag_matthewshelp.png); width: 279px; height: 36px; left: 1px; top: 98px;}
+#pmflag17 {background-image: url(../images/2012AR-outreach-2-flag_rightmoves.png); width: 270px; height: 37px; left: 11px; top: 146px;}
+#pmflag18 {background-image: url(../images/2012AR-outreach-2-flag_urban.png); width: 271px; height: 37px; left: 10px; top: 196px;}
+
+#pllefttop {background-image: url(../images/2012AR-outreach-2-line_disastertop.png); width: 49px; height: 2px; left: -145px; top: 645px;}
+#plleftmid {background-image: url(../images/2012AR-outreach-2-line_disasterdown.png); background-repeat: repeat-y; width: 3px; height: 1098px; left: -145px; top: 649px;}
+#plleftbot {background-image: url(../images/2012AR-outreach-2-line_disasterbottom.png); width: 124px; height: 3px; left: -145px; top: 1748px;}
+#plrighttop {background-image: url(../images/2012AR-outreach-2-line_localtop.png); width: 43px; height: 6px; left: 745px; top: 645px;}
+#plrightmid {background-image: url(../images/2012AR-outreach-2-line_localdown.png); background-repeat: repeat-y; width: 3px; height: 517px; left: 785px; top: 651px;}
+#plrightbot {background-image: url(../images/2012AR-outreach-2-line_localbottom.png); width: 135px; height: 3px; left: 653px; top: 1167px;}
+
+#partnervids {height: 650px; position: relative;}
+#pvheader {background-image: url(../images/2012AR-outreach-2-meet.png); background-position: center top; width: 640px; height: 15px; left: 0px; top: 0px;}
+#pvvids {position: absolute; width: 640px; height: 400px; left: 0px; top: 30px; z-index: 2;}
+#pvvid1 {left: 0px; top: 0px; background-image: url(http://b.vimeocdn.com/ts/212/351/212351474_200.jpg);}
+#pvvid2 {left: 220px; top: 0px; background-image: url(http://b.vimeocdn.com/ts/212/351/212351511_200.jpg);}
+#pvvid3 {left: 440px; top: 0px; background-image: url(http://b.vimeocdn.com/ts/212/350/212350919_200.jpg);}
+#pvvid4 {left: 0px; top: 170px; background-image: url(http://b.vimeocdn.com/ts/212/350/212350236_200.jpg);}
+#pvvid5 {left: 220px; top: 170px; background-image: url(http://b.vimeocdn.com/ts/212/349/212349658_200.jpg);}
+#pvvid6 {left: 440px; top: 170px; background-image: url(http://b.vimeocdn.com/ts/212/349/212349036_200.jpg);}
+#pvvid7 {left: 0px; top: 340px; background-image: url(http://b.vimeocdn.com/ts/212/349/212349081_200.jpg);}
+#pvvid8 {left: 220px; top: 340px; background-image: url(http://b.vimeocdn.com/ts/212/347/212347809_200.jpg);}
+#pvvid9 {left: 440px; top: 340px; background-image: url(http://b.vimeocdn.com/ts/268/711/268711085_200.jpg);}
+
+#disastervid {height: 500px; position: relative;}
+#dvheader {background-image: url(../images/2012AR-outreach-2-vidintro.png); background-position: center top; width: 100%; height: 15px; left: 0px; top: 0px;}
+#dvvid {top: 30px;}
+
+#partnerslink {height: 250px; position: relative;}
+#plbtn {background-image: url(../images/2012AR-outreach-2-sitelink.png); background-position: center top; width: 100%; height: 40px; left: 0px; top: 0px;}
+
+/* Page - Media */
+#page5 {background-color: #bed9e0;}
+
+#page5divider {background-color: #3c91a9;}
+#page5tab {background-image: url(../images/2011AR-media-1-tab.png); position: absolute; left: 50px; top: 10px;}
+#page5 .sectionheader {background-image: url(../images/2011AR-media-1-header.png); width: 194px; height: 17px; position: absolute; left: 200px; top: 35px;}
+
+#page5far1 {background-image: url(../images/2011AR-media-1-bkgd_cursor.png); width: 661px; height: 582px; left: 50%; top: 10%;}
+#page5far2 {background-image: url(../images/2011AR-media-2-bkgd_worship.png); width: 1050px; height: 327px; left: -20%; top: 40%;}
+#page5far3 {background-image: url(../images/2011AR-media-3-bkgd_podcast.png); width: 491px; height: 480px; left: 60%; top: 70%;}
+#page5near {background-image: url(../images/2011AR-media-3-bkgd_iphone.png); width: 302px; height: 588px; left: 20%; top: 85%;}
+
+#ecorgmap {height: 650px; position: relative;}
+#ecmheader {background-image: url(../images/2011AR-media-1-subhead_sitestats.png); width: 641px; height: 24px; left: 0px; top: 100px;}
+#ecmmap {background-image: url(../images/2011AR-media-1-map.png); background-position: center top; width: 868px; height: 425px; left: -100px; top: 150px;}
+#ecmtabs {position: absolute; width: 868px; height: 425px; left: -100px; top: 150px; z-index: 2;}
+#ecmtab1 {background-image: url(../images/2011AR-media-1-map_1.5mil.png); width: 144px; height: 108px; left: 141px; top: 67px;}
+#ecmtab2 {background-image: url(../images/2011AR-media-1-map_36K.png); width: 104px; height: 78px; left: 36px; top: 22px;}
+#ecmtab3 {background-image: url(../images/2011AR-media-1-map_17K.png); width: 93px; height: 70px; left: 351px; top: 56px;}
+#ecmtab4 {background-image: url(../images/2011AR-media-1-map_14K.png); width: 85px; height: 63px; left: 707px; top: 278px;}
+#ecmtab5 {background-image: url(../images/2011AR-media-1-map_10K.png); width: 84px; height: 62px; left: 703px; top: 118px;}
+#ecmtab6 {background-image: url(../images/2011AR-media-1-map_9.9K.png); width: 68px; height: 50px; left: 431px; top: 21px;}
+#ecmtab7 {background-image: url(../images/2011AR-media-1-map_6.2K.png); width: 64px; height: 48px; left: 622px; top: 229px;}
+#ecmtab8 {background-image: url(../images/2011AR-media-1-map_5.1K.png); width: 75px; height: 55px; left: 113px; top: 157px;}
+#ecmtab9 {background-image: url(../images/2011AR-media-1-map_4.9K.png); width: 60px; height: 44px; left: 450px; top: 100px;}
+#ecmtab10 {background-image: url(../images/2011AR-media-1-map_4.7K.png); width: 70px; height: 52px; left: 250px; top: 250px;}
+#ecmtotal {background-image: url(../images/2011AR-media-1-sitevisitors.png); width: 243px; height: 36px; left: 601px; top: 143px;}
+#ecmlegend {background-image: url(../images/2011AR-media-1-legend.png); width: 106px; height: 28px; left: -45px; top: 540px;}
+#ecmcountries {background-image: url(../images/2011AR-media-1-sitecountries.png); width: 331px; height: 39px; left: 230px; top: 540px;}
+
+#webstats {height: 650px; position: relative;}
+#webstats .rule {background-color: #3c91a9;}
+#wsruletop {width: 640px; height: 2px; left: 0px; top: 0px;}
+#wsrulevert {width: 2px; height: 440px; left: 220px; top: 25px;}
+#wsrulemid {width: 420px; height: 2px; left: 275px; top: 245px;}
+#wsvheader {background-image: url(../images/2011AR-media-1-webvisitors.png); width: 182px; height: 14px; left: -60px; top: 40px;}
+#wsvtotal {background-image: url(../images/2011AR-media-1-visitorsincrease.png); width: 196px; height: 100px; left: -25px; top: 80px;}
+#wsvchart {background-image: url(../images/2011AR-media-1-vistorschart.png); background-position: left bottom; width: 188px; height: 245px; left: -25px; top: 200px;}
+#wssheader {background-image: url(../images/2011AR-media-1-sermons.png); width: 271px; height: 27px; left: 270px; top: 30px;}
+#wssclock {background-image: url(../images/2011AR-media-1-sermonsclock.png); width: 134px; height: 136px; left: 310px; top: 80px;}
+#wsstime {background-image: url(../images/2011AR-media-1-51years.png); width: 313px; height: 77px; left: 402px; top: 81px;}
+#wsstotal {background-image: url(../images/2011AR-media-1-totalsermons.png); width: 250px; height: 28px; left: 448px; top: 168px;}
+#sfbox {background-image: url(../images/2011AR-media-1-sfdotcom.png); width: 421px; height: 169px; left: 275px; top: 275px;}
+#sftotal {background-image: url(../images/2011AR-media-1-sfsite_increase.png); width: 133px; height: 50px; left: 305px; top: 325px;}
+#sfchart {background-image: url(../images/2011AR-media-1-sfsite_chart.png); width: 215px; height: 45px; left: 454px; top: 325px;}
+#sfviews {background-image: url(../images/2011AR-media-1-sfsite_pgviews.png); background-position: left bottom; width: 364px; height: 41px; left: 306px; top: 384px; border-top: 1px solid #fff;}
+
+#ew {height: 400px; position: relative;}
+#ewheader {background-image: url(../images/2011AR-media-2-subhead_worship.png); width: 641px; height: 24px; left: 0px; top: 0px;}
+#ewtotal {background-image: url(../images/2011AR-media-2-totalalbums.png); width: 616px; height: 69px; left: 25px; top: 50px;}
+#ewfth {background-image: url(../images/2011AR-media-2-album_fth.png); width: 128px; height: 129px; left: 25px; top: 150px;}
+#ewkc {background-image: url(../images/2011AR-media-2-album_kc.png); width: 128px; height: 129px; left: 190px; top: 150px;}
+#ewgwu {background-image: url(../images/2011AR-media-2-album_gwu.png); width: 128px; height: 129px; left: 352px; top: 150px;}
+#ewwaa {background-image: url(../images/2011AR-media-2-album_waa.png); width: 128px; height: 129px; left: 513px; top: 150px;}
+#ewinst {background-image: url(../images/2011AR-media-2-download.png); width: 622px; height: 14px; left: 22px; top: 293px;}
+
+#ew2 {height: 500px; position: relative;}
+#ewfirsts {background-image: url(../images/2011AR-media-2-worshipfirsts.png); background-position: left bottom; width: 623px; height: 42px; left: 0px; top: 0px;}
+#ewbillboard {background-image: url(../images/2011AR-media-2-billboard.png); width: 187px; height: 236px; left: 0px; top: 65px;}
+#ewvids {position: absolute; width: 640px; height: 400px; left: 220px; top: 65px; z-index: 2;}
+#ewvid1 {left: 0px; top: 0px; background-image: url(http://b.vimeocdn.com/ts/210/202/210202043_200.jpg);}
+#ewvid2 {left: 220px; top: 0px; background-image: url(http://b.vimeocdn.com/ts/210/204/210204293_200.jpg);}
+#ewvid3 {left: 0px; top: 170px; background-image: url(http://b.vimeocdn.com/ts/210/194/210194782_200.jpg);}
+#ewvid4 {left: 220px; top: 170px; background-image: url(http://b.vimeocdn.com/ts/210/195/210195360_200.jpg);}
+#ewvid-target {top:50px;}
+
+#ew3 {height: 500px; position: relative;}
+#ewheight {background-image: url(../images/2011AR-media-2-heights_title.png); background-position: center bottom; width: 100%; height: 15px; left: 0px; top: 0px;}
+#ewleaders {position: absolute; width: 600px; height: 230px; left: 63px; top: 25px; z-index: 2;}
+#ewbrad {background-image: url(../images/2011AR-media-2-heights_brad.png); width: 84px; height: 224px; left: 0px; bottom: 0px;}
+#ewchris {background-image: url(../images/2011AR-media-2-heights_chris.png); width: 81px; height: 207px; left: 95px; bottom: 0px;}
+#ewwade {background-image: url(../images/2011AR-media-2-heights_wade.png); width: 71px; height: 185px; left: 183px; bottom: 0px;}
+#ewmack {background-image: url(../images/2011AR-media-2-heights_mack.png); width: 80px; height: 203px; left: 261px; bottom: 0px;}
+#ewlondon {background-image: url(../images/2011AR-media-2-heights_london.png); width: 85px; height: 191px; left: 349px; bottom: 0px;}
+#ewjane {background-image: url(../images/2011AR-media-2-heights_jane.png); width: 84px; height: 193px; left: 441px; bottom: 0px;}
+#ewheightlegend {background-image: url(../images/2011AR-media-2-heights_names.png); background-position: center bottom; width: 100%; height: 26px; left: 0px; top: 263px;}
+
+#podcasts {height: 400px; position: relative;}
+#spheader {background-image: url(../images/2011AR-media-3_06.png); width: 641px; height: 24px; left: 0px; top: 0px;}
+#spsubhead {background-image: url(../images/2011AR-media-3-audiopodcasts.png); width: 240px; height: 14px; left: 24px; top: 50px;}
+#splogo {background-image: url(../images/2011AR-media-3-podcasticon.png); width: 118px; height: 115px; left: 20px; top: 75px;}
+#spchart {background-image: url(../images/2011AR-media-3-podcastchart.png); width: 336px; height: 108px; left: 150px; top: 70px;}
+#spvodviews {background-image: url(../images/2011AR-media-3-videopodcasts.png); width: 118px; height: 146px; left: 522px; top: 50px;}
+#spinst {background-image: url(../images/2011AR-media-3-podcast_clickhere.png); width: 362px; height: 27px; left: 150px; top: 210px;}
+#spaudio {background-image: url(../images/2011AR-media-3-btn_audio.png); width: 110px; height: 49px; left: 155px; top: 240px;}
+#spvideo {background-image: url(../images/2011AR-media-3-btn_vid.png); width: 110px; height: 49px; left: 266px; top: 240px;}
+#sphdvid {background-image: url(../images/2011AR-media-3-btn_hdvid.png); width: 135px; height: 49px; left: 377px; top: 240px;}
+
+#tv {height: 300px; position: relative;}
+#tvheader {background-image: url(../images/2011AR-media-3-tvstats.png); width: 447px; height: 34px; left: 100px; top: 0px;}
+#tvicon {background-image: url(../images/2011AR-media-3-tv.png); width: 201px; height: 139px; left: 100px; top: 45px;}
+#tvviewers {background-image: url(../images/2011AR-media-3-tv_viewers.png); width: 235px; height: 134px; left: 314px; top: 45px;}
+
+#app {height: 400px; position: relative;}
+#saheader {background-image: url(../images/2011AR-media-3-appstats.png); width: 214px; height: 22px; left: 100px; top: 0px;}
+#saicon {background-image: url(../images/2011AR-media-3-appicon.png); width: 117px; height: 116px; left: 100px; top: 35px;}
+#salaunches {background-image: url(../images/2011AR-media-3-applaunches.png); width: 324px; height: 108px; left: 227px; top: 35px;}
+#sainstalls {background-image: url(../images/2011AR-media-3-appinstalls.png); width: 446px; height: 21px; left: 104px; top: 160px;}
+#sadownload {background-image: url(../images/2011AR-media-3-btn_appdownload.png); width: 454px; height: 49px; left: 101px; top: 195px;}
+
+/* Page - Ext/Exp */
+#page6 {background-color: #000;}
+
+#page6divider {background-color: #db7b00;}
+#page6tab {background-image: url(../images/2011AR-extension-tab.png); position: absolute; left: 50px; top: 10px;}
+#page6 .sectionheader {background-image: url(../images/2011AR-extension-header.png); width: 234px; height: 16px; position: absolute; left: 200px; top: 35px;}
+
+#extmap {height: 850px; position: relative;}
+#emintro {background-image: url(../images/2011AR-extension-desc.png); width: 780px; height: 113px; left: -65px; top: 100px;}
+#emheader {background-image: url(../images/2011AR-extension-subhead_map.png); width: 641px; height: 23px; left: 0px; top: 250px;}
+#emmap {background-image: url(../images/2011AR-extension-map.png); width: 1009px; height: 494px; left: -180px; top: 230px;}
+#emlines1 {background-image: url(../images/2011AR-extension-maplines.png); width: 136px; height: 294px; left: -67px; top: 355px;}
+#emlines2 {background-image: url(../images/2011AR-extension-maplines.png); background-position: -136px top; width: 570px; height: 294px; left: 69px; top: 355px;}
+#emlegend {background-image: url(../images/2011AR-extension-legend.png); width: 239px; height: 27px; left: 300px; top: 690px;}
+
+#extvideo {height: 500px; position: relative;}
+#evheader {background-image: url(../images/2011AR-extension-learnmore.png); background-position: center top; width: 640px; height: 14px; left: 0px; top: 0px;}
+#evvid {top: 30px;}
+
+#extstats {height: 500px; position: relative;}
+#extstats .rule {background-color: #C9D800;}
+#esrule1 {width: 640px; height: 2px; left: 0px; top: 0px;}
+#essites {background-image: url(../images/2011AR-extension-20sites.png); width: 640px; height: 53px; left: 0px; top: 20px;}
+#esrule2 {width: 640px; height: 2px; left: 0px; top: 90px;}
+#esatt {background-image: url(../images/2011AR-extension-kershaw.png); width: 236px; height: 38px; left: 0px; top: 110px;}
+#esppl {background-image: url(../images/2011AR-extension-avgatt.png); width: 196px; height: 38px; left: 256px; top: 110px;}
+#esbapt {background-image: url(../images/2011AR-extension-baptisms.png); width: 166px; height: 38px; left: 473px; top: 110px;}
+#essal {background-image: url(../images/2011AR-extension-salvations.png); width: 632px; height: 63px; left: 0px; top: 160px;}
+#eslink {background-image: url(../images/2011AR-extension-moreinfo.png); width: 619px; height: 14px; left: 0px; top: 270px;}
+
+#expansionmap {height: 800px; position: relative;}
+#expmheader {background-image: url(../images/2011AR-expansion-subhead.png); width: 640px; height: 24px; left: 0px; top: 0px;}
+#expmmap {background-image: url(../images/2011AR-expansion-map.png); width: 675px; height: 601px; left: -22px; top: 30px;}
+#expmloc1 {background-image: url(../images/2011AR-expansion-prov.png); width: 98px; height: 46px; left: 360px; top: 360px;}
+#expmloc2 {background-image: url(../images/2011AR-expansion-mat.png); width: 82px; height: 45px; left: 482px; top: 345px;}
+#expmloc3 {background-image: url(../images/2011AR-expansion-upt.png); width: 100px; height: 29px; left: 342px; top: 208px;}
+#expmloc4 {background-image: url(../images/2011AR-expansion-blk.png); width: 110px; height: 29px; left: 360px; top: 475px;}
+#expmloc5 {background-image: url(../images/2011AR-expansion-univ.png); width: 85px; height: 51px; left: 364px; top: 85px;}
+#expmloc6 {background-image: url(../images/2011AR-expansion-rh.png); width: 121px; height: 38px; left: 50px; top: 569px;}
+#expmdetail {background-image: url(../images/2011AR-expansion-proxmap.png); width: 198px; height: 129px; left: -20px; top: 90px;}
+#expmlegend {background-image: url(../images/2011AR-expansion-legend.png); width: 147px; height: 34px; left: 0px; top: 230px;}
+#expmavg {background-image: url(../images/2011AR-expansion-avgatt.png); width: 413px; height: 115px; left: 260px; top: 570px;}
+
+#expvideo {height: 550px; position: relative;}
+#expvheader {background-image: url(../images/2011AR-expansion-vidintro.png); background-position: center top; width: 640px; height: 32px; left: 0px; top: 0px;}
+#expvvid {top: 50px;}
+
+#expstats {height: 600px; position: relative;}
+#expsheader {background-image: url(../images/2011AR-expansion-subhead_growth.png); width: 632px; height: 23px; left: 0px; top: 0px;}
+#expsland {background-image: url(../images/2011AR-expansion-land.png); width: 331px; height: 62px; left: 115px; top: 60px;}
+#expswh {background-image: url(../images/2011AR-expansion-warehouses.png); width: 388px; height: 97px; left: 146px; top: 150px;}
+#expspl {background-image: url(../images/2011AR-expansion-portable.png); width: 393px; height: 78px; left: 111px; top: 275px;}
+#expsbc {background-image: url(../images/2011AR-expansion-beyondclt.png); width: 371px; height: 70px; left: 143px; top: 375px;}
+
+/* Page - Finance */
+#page7 {background-color: #eff2b5;}
+
+#page7divider {background-color: #c8d200;}
+#page7tab {background-image: url(../images/2011AR-financial-1-tab.png); position: absolute; left: 50px; top: 10px;}
+#page7 .sectionheader {background-image: url(../images/2011AR-financial-1-header.png); width: 364px; height: 18px; position: absolute; left: 200px; top: 35px;}
+
+#expenses {height: 600px; position: relative;}
+#becircle {background-image: url(../images/2011AR-financial-1-expenseschart.png); width: 398px; height: 399px; left: -50px; top: 120px;}
+#bearrow {background-image: url(../images/2011AR-financial-1-chartarrow.png); width: 274px; height: 110px; left: 130px; top: 230px;}
+#bechart {background-image: url(../images/2011AR-financial-1-expensesbreakdown.png); width: 414px; height: 300px; left: 395px; top: 130px;}
+#beasterisk {background-image: url(../images/2011AR-financial-1-expensesasterisk.png); width: 381px; height: 64px; left: 423px; top: 450px;}
+
+#income {height: 550px; position: relative;}
+#biheader {background-image: url(../images/2011AR-financial-1-subhead_income.png); width: 740px; height: 27px; left: 0px; top: 0px;}
+#bibreakdown {background-image: url(../images/2011AR-financial-1-incomebreakdown.png); width: 345px; height: 330px; left: 10px; top: 60px;}
+#bicompare {background-image: url(../images/2011AR-financial-1-incomecompare.png); width: 309px; height: 325px; left: 420px; top: 64px;}
+#birule {background-color: #C9D800; width: 2px; height: 350px; left: 380px; top: 40px;}
+#binote {background-image: url(../images/2011AR-financial-1-more$info.png); width: 467px; height: 27px; left: 118px; top: 430px;}
+
+#giving {height: 450px; position: relative;}
+#bgheader {background-image: url(../images/2011AR-financial-1-subhead_avggiving.png); width: 641px; height: 23px; left: 0px; top: 0px;}
+#bgincrease {background-image: url(../images/2011AR-financial-1-givingincrease.png); width: 186px; height: 88px; left: 20px; top: 50px;}
+#bgavg {background-image: url(../images/2011AR-financial-1-givinglabel.png); width: 270px; height: 47px; left: 220px; top: 91px;}
+#bgchart {background-image: url(../images/2011AR-financial-1-givingchart.png); width: 615px; height: 196px; left: 20px; top: 145px;}
+
+#online {height: 550px; position: relative;}
+#boheader {background-image: url(../images/2011AR-financial-1-subhead_onlineoffering.png); width: 643px; height: 24px; left: 0px; top: 0px;}
+#bochart {background-image: url(../images/2011AR-financial-1-onlinechart.png); width: 177px; height: 386px; left: 110px; top: 50px;}
+#boincrease {background-image: url(../images/2011AR-financial-1-onlineincrease.png); width: 158px; height: 333px; left: 360px; top: 100px;}
+
+#loans {height: 650px; position: relative;}
+#blheader {background-image: url(../images/2011AR-financial-1-subhead_loans.png); width: 641px; height: 24px; left: 0px; top: 0px;}
+#blchart {background-image: url(../images/2011AR-financial-1-loanschart.png); width: 322px; height: 347px; left: -50px; top: 50px;}
+#bllegend {background-image: url(../images/2011AR-financial-1-loanskey.png); width: 422px; height: 178px; left: 310px; top: 140px;}
+#blaudit {background-image: url(../images/2011AR-financial-1-audit.png); width: 294px; height: 49px; left: 190px; top: 500px;}
+
+#letter {height: 750px; position: relative;}
+#fltext {background-image: url(../images/2011AR-financial-2-letter.png); width: 752px; height: 556px; left: 50px; top: 55px;}
+#flbio {background-image: url(../images/2011AR-financial-2-bio.png); width: 158px; height: 186px; left: -129px; top: 283px;}
+#flphoto {background-image: url(../images/2011AR-financial-2-photo.png); width: 170px; height: 220px; left: -135px; top: 50px;}
+
+/* Page - Close */
+#page8 {background: #fff url(../images/2011AR-close-map.png) no-repeat 50% 45%; -webkit-background-size: 1375px 673px;}
+
+#page8divider {background-image: url(../images/2011AR-home-2-bar.png); background-color: #8C8F92; top:auto; bottom: 0;}
+
+#close {height: 1100px; position: relative;}
+#fctitle {background-image: url(../images/2011AR-close-title.png); width: 665px; height: 160px; left: -12px; top: 400px;}
+#fcshare {background-image: url(../images/2011AR-close-share.png); width: 385px; height: 83px; left: 132px; top: 600px;}
+#fcsharefb {width: 37px; height: 37px; left: 228px; top: 23px;}
+#fcsharetw {width: 37px; height: 37px; left: 274px; top: 23px;}
+#fcsharegp {width: 37px; height: 37px; left: 320px; top: 23px;}
+#fcdownload {background-image: url(../images/2011AR-close-download.png); width: 385px; height: 61px; left: 132px; top: 700px;}
+#fcfooter {background-image: url(../images/2011AR-close-footer.png); width: 318px; height: 88px; left: 166px; top: 950px;}
+
+
+/* Mobile overrides */
+/*.ismobile #ekidz {background-color: #f9f2f2;}*/
+
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+@media print {
+}
+
